@@ -1,0 +1,89 @@
+<html lang="en">
+ <head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Borrowing Form
+  </title>
+  <link href="css/style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+ </head>
+ <body class="font-sans">
+  <header>
+   <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Logo" />
+                <span class="logo-text">E-Library</span>
+              </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogue.html">Book Catalogue</a></li>
+                <li><a href="saved.html">Saved</a></li>
+                <li><a href="guide.html">Guide</a></li>
+                <li><a href="about.html">About us</a></li>
+            </ul>
+        </nav>
+  </header>
+     <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Book Borrowing Registration Form</h1>
+            <p>
+                Please fill in the data correctly
+            </p>
+        </div>
+    </section>
+  <main class="max-w-md mx-auto px-6 py-8">
+   <form action="index.html" method="get" class="space-y-4">
+    <input class="w-full border border-yellow-400 text-sm px-3 py-2 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-yellow-400" name="name" placeholder="Name" type="text"/>
+    <input class="w-full border border-yellow-400 text-sm px-3 py-2 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-yellow-400" name="email" placeholder="Email address" type="email"/>
+    <input class="w-full border border-yellow-400 text-sm px-3 py-2 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-600" name="returnDate" placeholder="Return Date" type="date"/>
+    <input class="w-full border border-yellow-400 text-sm px-3 py-2 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-yellow-400" name="studentId" placeholder="Student ID" type="text"/>
+    <div class="flex justify-between items-start mt-2">
+     <ul class="text-[10px] text-black max-w-[70%] list-decimal list-inside space-y-1">
+      <li>
+       Pdf will be send 24/7 to reader's email
+      </li>
+      <li>
+       If you are a Umrah student, you must fill in your Student ID. Non-students do not need to provide this information (just type -)
+      </li>
+      <li>
+       Books will return within 7 days for all books.
+       <a class="text-yellow-400 underline" href="guide.html">
+        Learn more
+       </a>
+      </li>
+     </ul>
+  <button class="border border-yellow-400 text-blue-600 text-xs font-semibold px-6 py-1 rounded-sm mt-6 bg-yellow-400 hover:bg-transparent hover:text-blue-600 transition" type="submit">
+      Submit
+     </button>
+    </div>
+   </form>
+  </main>
+ <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="logo">E-Library</div>
+        <p>© 2025 E-Library. All rights reserved.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="catalogue.html">Book Catalogue</a>
+          <a href="saved.html">Saved</a>
+          <a href="guide.html">Guide</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-contact">
+          <p>Jl. Politeknik, Senggarang Kec. Tanjungpinang Kota</p>
+          <p>Email: elibrary@umrah.ac.id</p>
+          <p>Phone: +62-345-67899</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+ </body>
+</html>

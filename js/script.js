@@ -58,3 +58,13 @@ toggleConfirmPassword.addEventListener("click", () => {
     toggleConfirmIcon.classList.add("fa-eye-slash");
   }
 });
+
+  // Simple mobile menu toggle
+   const menuBtn = document.getElementById('menu-btn');
+   const navLinks = document.querySelector('.nav-links');
+   const authButtons = document.querySelector('.auth-buttons');
+
+   menuBtn.addEventListener('click', () => {
+     navLinks.classList.toggle('hidden');
+     authButtons.classList.toggle('hidden');
+   });
