@@ -1,0 +1,534 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Catalogue</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f6fa;
+      color: #333;
+    }
+
+    .container {
+      margin-top: 80px; /* offset agar tidak tertimpa navbar */
+      display: flex;
+      padding: 20px;
+      gap: 20px;
+    }
+    /* Sidebar */
+    .sidebar {
+    background: #ffffff;
+    padding: 20px;
+    width: 250px;
+    font-family: sans-serif;
+    }
+
+    .filter-title {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    }
+
+   .search-box {
+  display: flex;
+  align-items: center;
+  background-color: #ffcc00;
+  border-radius: 12px;
+  padding: 6px;
+  margin-bottom: 25px;
+}
+
+.search-box input {
+  flex: 1 1 auto;
+  width: 100px; /* kamu bisa sesuaikan nilainya: 120px, 140px, dsb */
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+    .search-box button {
+    background: #005eff;
+    border: none;
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    }
+
+    .filter-group {
+    background: #ffeb66;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 20px;
+    }
+
+    .filter-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #005eff;
+    margin-bottom: 10px;
+    }
+
+    .checkbox-list label {
+    display: block;
+    margin: 5px 0;
+    color: #444;
+    font-size: 14px;
+    }
+
+    .filter-button {
+    width: 100%;
+    background: #ffeb66;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #005eff;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .arrow {
+    font-weight: bold;
+    font-size: 18px;
+    }
+
+  
+    /* Khusus untuk catalogue.html */
+    body.catalogue .nav-buttons.fixed {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: white; /* biar tombol tetap terlihat */
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    
+
+
+
+    /* Catalogue */
+    .catalogue {
+      flex: 1;
+    }
+
+    .catalogue h1 {
+      margin-bottom: 20px;
+    }
+
+    .book-section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-header h2 {
+      margin: 0;
+    }
+
+    .slider-controls button {
+      background: #ffcc00;
+      border: none;
+      padding: 6px 12px;
+      margin-left: 5px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transform: translateX(-20px); /* GESER ke kiri */
+    }
+
+    .book-row {
+      display: flex;
+      gap: 20px;
+      margin-top: 15px;
+      scroll-behavior: smooth;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    .book-card {
+      background: #fff;
+     
+      border-radius: 8px;
+      width: 215px;
+      height: 400px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      text-align: center;
+    }
+
+    .book-image {
+      height: 320px;
+      background: #ddd;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+   .book-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+    text-align: left;
+    }
+
+    .book-author {
+    color: #555;
+    font-size: 14px;
+    margin: 0 12px 8px;
+    height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    }
+
+    .book-rating {
+      color: #ffcc00;
+      font-size: 14px;
+    }
+
+    .checkbox-list input[type="checkbox"],
+      input[type="radio"] {
+      margin-right: 6px;
+}
+
+  </style>
+</head>
+<body class="catalogue">
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Logo" />
+                <span class="logo-text">E-Library</span>
+              </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalogue.html">Book Catalogue</a></li>
+                <li><a href="saved.html">Saved</a></li>
+                <li><a href="guide.html">Guide</a></li>
+                <li><a href="about.html">About us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn">Log in</a>
+                <a href="signup.html" class="btn btn-yellow">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+  <div class="container">
+    <!-- Sidebar Filter -->
+    <aside class="sidebar">
+        <h3 class="filter-title">Filter</h3>
+
+        <div class="search-box">
+             <input type="text" placeholder="Search" />
+                <button class="search-button">
+                    <img src="images/search-icon.png" alt="Search" class="search-icon">
+                </button>
+              </div>
+
+        <div class="filter-group category-group">
+            <div class="filter-header">
+            <span>By-Category</span>
+            <span class="dropdown-icon">▼</span>
+            </div>
+            <div class="checkbox-list">
+            <label><input type="checkbox" /> Fiction</label>
+            <label><input type="checkbox" /> Non-Fiction</label>
+            <label><input type="checkbox" /> Romance</label>
+            <label><input type="checkbox" checked /> History</label>
+            <label><input type="checkbox" /> Biography</label>
+            <label><input type="checkbox" /> Science</label>
+            <label><input type="checkbox" /> Thesis</label>
+            </div>
+        </div>
+
+        <button class="filter-button">
+            Language <span class="arrow">›</span>
+        </button>
+
+        <button class="filter-button">
+            Release date <span class="arrow">›</span>
+        </button>
+        </aside>
+
+
+    <!-- Main Content -->
+    <main class="catalogue">
+      <h1>Book Catalogue</h1>
+
+      <!-- Section: Popular -->
+            <section class="book-section">
+        <div class="section-header">
+            <h2>Popular</h2>
+            <div class="nav-buttons">
+            <button class="nav-btn prevBtn"><span>&#10094;</span></button>
+            <button class="nav-btn nextBtn"><span>&#10095;</span></button>
+            </div>
+
+        </div>
+
+        <div class="book-row">
+            <a href="book details/human kind.html" style="text-decoration: none; color: inherit;">
+            <div class="book-card">
+                <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+                <h4 class="book-title">Human Kind, A Hopefull History</h4>
+                <p class="book-author">Rutger Bregman</p>
+                <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+            </a>
+
+            
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+            <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+        </div>
+        </section>
+
+
+      <!-- Section: Trending -->
+      <section class="book-section">
+        <div class="section-header">
+          <h2>Trending</h2>
+         <div class="nav-buttons">
+                <button class="nav-btn prevBtn"><span>&#10094;</span></button>
+                <button class="nav-btn nextBtn"><span>&#10095;</span></button>
+
+              </div>
+        </div>
+        <div class="book-row">
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+            <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+            <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Section: Recommendation -->
+      <section class="book-section">
+        <div class="section-header">
+          <h2>Recommendation</h2>
+         <div class="nav-buttons">
+                <button class="nav-btn prevBtn"><span>&#10094;</span></button>
+                <button class="nav-btn nextBtn"><span>&#10095;</span></button>
+
+              </div>
+        </div>
+        <div class="book-row">
+           <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+        </div>
+      </section>
+
+      <!-- Section: Best Books -->
+      <section class="book-section">
+        <div class="section-header">
+          <h2>Best Books</h2>
+          <div class="nav-buttons">
+                <button class="nav-btn prevBtn"><span>&#10094;</span></button>
+                <button class="nav-btn nextBtn"><span>&#10095;</span></button>
+
+              </div>
+        </div>
+        <div class="book-row">
+            <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+            <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+
+             <div class="book-card">
+            <div class="book-image" style="background-image: url('images/img_714cjx5rlacuf10001000ql80_1.png'); background-size: cover; background-position: center; border-radius: 6px;"></div>
+
+            <h4 class="book-title">Human Kind, A Hopefull History</h4>
+            <p class="book-author">Rutger Bregman</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <span>5.0</span></div>
+            </div>
+        </div>
+      </section>
+    </main>
+  </div>
+<script>
+
+     // Semua pasangan tombol prev & next akan memengaruhi .book-row terdekat
+  document.querySelectorAll('.book-section').forEach(section => {
+    const row = section.querySelector('.book-row');
+    const prevBtn = section.querySelector('.prevBtn');
+    const nextBtn = section.querySelector('.nextBtn');
+    
+    const scrollAmount = 300; // Sesuaikan seberapa jauh ingin geser
+
+    prevBtn.addEventListener('click', () => {
+      row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  });
+
+  // Toggle By-Category
+  document.querySelector('.category-group .filter-header').addEventListener('click', function () {
+    const list = document.querySelector('.category-group .checkbox-list');
+    list.style.display = list.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Toggle Language
+  const languageButton = document.querySelectorAll('.filter-button')[0];
+  const languageOptions = document.createElement('div');
+  languageOptions.innerHTML = `
+    <label><input type="radio" name="language" value="English"> English</label><br>
+    <label><input type="radio" name="language" value="Bahasa"> Bahasa</label><br>
+    <label><input type="radio" name="language" value="Arabic"> Arabic</label>
+  `;
+  languageOptions.style.display = 'none';
+  languageOptions.style.background = '#ffeb66';
+  languageOptions.style.borderRadius = '12px';
+  languageOptions.style.padding = '10px';
+  languageOptions.style.marginBottom = '12px';
+  languageButton.insertAdjacentElement('afterend', languageOptions);
+
+  languageButton.addEventListener('click', () => {
+    languageOptions.style.display = languageOptions.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Toggle Release Date
+  const releaseButton = document.querySelectorAll('.filter-button')[1];
+  const releaseInput = document.createElement('input');
+  releaseInput.type = 'date';
+  releaseInput.style.display = 'none';
+  releaseInput.style.width = '100%';
+  releaseInput.style.padding = '10px';
+  releaseInput.style.borderRadius = '12px';
+  releaseInput.style.border = '1px solid #ccc';
+  releaseInput.style.marginBottom = '12px';
+  releaseButton.insertAdjacentElement('afterend', releaseInput);
+
+  releaseButton.addEventListener('click', () => {
+    releaseInput.style.display = releaseInput.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Search Button
+  document.querySelector('.search-box button').addEventListener('click', () => {
+    const keyword = document.querySelector('.search-box input').value;
+    alert('Searching for: ' + keyword);
+  });
+</script>
+</body>
+</html>
