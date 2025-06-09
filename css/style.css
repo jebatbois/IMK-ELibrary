@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 body {
@@ -89,14 +89,13 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    background: url('images/background.jpg') no-repeat center top;
+    background: url('../images/background.jpg') no-repeat center top;
     background-size: cover;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
   }
   
   .overlay {
@@ -114,6 +113,7 @@ body {
     z-index: 2;
     max-width: 800px;
     padding: 20px;
+    color: white;
   }
   
   .hero h1 {
@@ -215,82 +215,105 @@ body {
 .trending-books {
     padding: 40px;
     background-color: #f8fbfd;
-    position: relative;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 .books-container {
     display: flex;
+    gap: 24px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    gap: 24px;
     padding: 20px 0;
 }
 
 .book-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    overflow: hidden;
-    transition: transform 0.2s;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    min-height: 380px;
     display: flex;
     flex-direction: column;
-    width: 200px;
-    min-height: 420px;
-    flex-shrink: 0;
+    align-items: center;
+    transition: transform 0.3s ease;
 }
 
 .book-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .book-card img {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    flex-shrink: 0;
 }
 
 .book-card h4 {
     font-size: 16px;
-    margin: 12px 12px 4px;
-    padding: 0;
-    line-height: 1.2;
-    height: 42px; /* fix height untuk 2 baris judul */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 12px;
+    text-align: center;
 }
 
 .book-card .author {
     color: #555;
     font-size: 14px;
-    margin: 0 12px 8px;
-    height: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin-bottom: 8px;
 }
 
 .rating {
     font-size: 14px;
     color: gold;
-    margin: 0 12px 12px;
-    display: flex;
-    align-items: center;
-    height: 20px;
+    margin-bottom: 12px;
 }
 
-.rating span {
-    color: #000;
-    margin-left: 6px;
-}
+/* Book Catalogue Section */
+   .browse-section {
+      padding: 50px 50px 70px;
+      background-color: #003366;
+      color: white;
+      max-width: 5000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      justify-content: space-between;
+    }
 
-.browse-section {
-    padding: 50px;
-    background-color: #003366;
-    color: white;
-    text-align: center;
-}
+  .browse-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      max-width: 200px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      flex: 1 1 100%;
+    }
+
+    .browse-section .btn-yellow {
+      padding: 10px 10px;
+      font-weight: 400;
+      border-radius: 5px;
+      white-space: nowrap;
+      transition: background-color 0.3s;
+      margin-bottom: 9px;
+      max-width: 200px;
+      flex-shrink: 0;
+      order: 3; /* agar tombol berada di bawah teks */
+      background-color: #facc15;
+      align-self: flex-start;
+    }
+
+    .browse-section .btn-yellow:hover {
+      background-color: #f0c419;
+    }
 
 .book-carousel {
     display: flex;
@@ -301,7 +324,30 @@ body {
 
 .book-carousel img {
     width: 150px;
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-carousel img:nth-child(1) {
+    z-index: 1;
+    margin-left: 0;
+    transform: translateX(0);
+    border-color: transparent;
+}
+
+.book-carousel img:nth-child(2) {
+    z-index: 3;
+    margin-left: -90px;
+    transform: translateX(0);
+    border-color: #facc15;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+ .book-carousel img:nth-child(3) {
+    z-index: 2;
+    margin-left: -90px;
+    transform: translateX(0);
+    border-color: transparent;
 }
 
 /* About Section */

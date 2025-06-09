@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E-Library Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/login.css" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex">
+    <div class="w-1/2 min-h-screen flex flex-col justify-center px-16 bg-white">
+      <div
+        class="mb-12 inline-flex items-center space-x-3 bg-blue-600 rounded-md px-4 py-2 w-max"
+      >
+        <img
+          alt="E-Library logo"
+          class="rounded-md"
+          height="60"
+          src="images/logo.png"
+          width="100"
+        />
+        <span class="text-yellow-400 font-semibold text-base select-none">
+          E-Library
+        </span>
+      </div>
+      <h1 class="text-4xl font-extrabold text-blue-600 mb-8">SIGN UP</h1>
+      <form
+        class="space-y-6 max-w-md relative"
+        onsubmit="event.preventDefault(); window.location.href='index.html';"
+      >
+        <div>
+          <input
+            class="input-field"
+            placeholder="Name"
+            type="text"
+            required
+          />
+        </div>
+        <div>
+          <input
+            class="input-field"
+            placeholder="Email Address"
+            type="email"
+            required
+          />
+        </div>
+        <div>
+          <input
+            class="input-field"
+            placeholder="Student ID"
+            type="text"
+            required
+          />
+        </div>
+        <div class="relative">
+          <input
+            class="input-field"
+            id="passwordField"
+            placeholder="Password"
+            type="password"
+            required
+          />
+          <button
+            aria-label="Toggle password visibility"
+            class="toggle-button"
+            id="togglePassword"
+            type="button"
+          >
+            <i class="fas fa-eye-slash" id="toggleIcon"></i>
+          </button>
+        </div>
+        <div class="relative">
+          <input
+            class="input-field"
+            id="confirmPasswordField"
+            placeholder="Confirm Password"
+            type="password"
+            required
+          />
+          <button
+            aria-label="Toggle confirm password visibility"
+            class="toggle-button"
+            id="toggleConfirmPassword"
+            type="button"
+          >
+            <i class="fas fa-eye-slash" id="toggleConfirmIcon"></i>
+          </button>
+        </div>
+        <div class="flex justify-end pt-4">
+          <button class="btn-submit" type="submit">Sign Up</button>
+        </div>
+      </form>
+    </div>
+    <div class="w-1/2 min-h-screen">
+      <img
+        alt="Interior of a large circular library with curved bookshelves and reading area"
+        class="w-full h-full object-cover"
+        height="1000"
+        src="images/perpus.jpg"
+        width="800"
+      />
+    </div>
+    <script src="js/signup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>E-Library Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"/>
+    <link rel="stylesheet" href="css/login.css"/>
+  </head>
+  <body class="min-h-screen flex">
+    <div class="w-1/2 min-h-screen flex flex-col justify-center px-16 bg-white">
+      <div class="mb-12 inline-flex items-center space-x-3 bg-blue-600 rounded-md px-4 py-2 w-max">
+        <img alt="E-Library logo" class="rounded-md" src="../images/logo.png" width="100" height="60"/>
+        <span class="text-yellow-400 font-semibold text-base select-none">E-Library</span>
+      </div>
+      <h1 class="text-4xl font-extrabold text-blue-600 mb-2">LOG IN</h1>
+      <p class="text-sm mb-8">Welcome back, reader</p>
+      <form class="space-y-6 max-w-md" onsubmit="event.preventDefault(); window.location.href='index.html';">
+        <div>
+          <input class="input-field" id="emailInput" placeholder="Email address/ID" type="email" required/>
+        </div>
+        <div class="relative">
+          <input class="input-field pr-10" id="passwordField" placeholder="Password" type="password" required/>
+          <button aria-label="Toggle password visibility" class="toggle-button" id="togglePassword" type="button">
+            <i class="fas fa-eye-slash" id="toggleIcon"></i>
+          </button>
+        </div>
+        <div class="flex items-center justify-between max-w-md">
+          <a class="text-xs text-blue-600 hover:underline" href="forgot.html">Forgot password?</a>
+          <button class="btn-submit" type="submit">Login</button>
+        </div>
+      </form>
+      <p class="mt-16 text-xs text-gray-700">
+        Are you new here? <a class="font-semibold text-blue-600 hover:underline" href="signup.html">Register</a>
+      </p>
+    </div>
+    <div class="w-1/2 min-h-screen">
+      <img alt="Interior of a large circular library with curved bookshelves and reading area" class="w-full h-full object-cover" src="../images/perpus.jpg" width="800" height="1000"/>
+    </div>
+    <script src="js/signup.js"></script>
+  </body>
+</html>
