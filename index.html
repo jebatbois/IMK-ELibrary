@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
@@ -113,23 +115,56 @@
     </section>
 
 
-    <section class="about-section">
-        <div class="about-container">
-            <div class="about-images">
-                <img src="images/about1.jpg" alt="Library 1">
-                <img src="images/about2.jpg" alt="Library 2">
+  <section class="about-section">
+    <main class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row md:items-start md:gap-12">
+        <section class="relative flex flex-col md:flex-row md:gap-6">
+            <div class="relative w-[280px] h-[400px] md:w-[320px] md:h-[460px] flex-shrink-0 shadow-lg z-10">
+                <img alt="Bookshelf filled with books and a hanging lamp in a library" 
+                    class="w-full h-full object-cover" 
+                    height="460" 
+                    src="images/about1.jpg" 
+                    width="320" />
             </div>
-            <div class="about-text">
-                <h3>About E-Library</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dignissim nisl eget metus vehicula...</p>
-                <div class="highlights">
-                    <div class="highlight">Established 2025</div>
-                    <div class="highlight">Over 1k E-Books</div>
+            <div class="relative w-[180px] h-[280px] md:w-[200px] md:h-[320px] flex-shrink-0 shadow-lg mt-6 md:mt-0">
+                <img alt="Narrow aisle between tall bookshelves filled with books in a library" 
+                    class="w-full h-full object-cover" 
+                    height="320" 
+                    src="images/about2.jpg" 
+                    width="200" />
+                <div class="absolute -bottom-24 left-[-3.5rem] flex space-x-6 px-2">
+                    <div class="bg-[#0066d1] text-white flex flex-col items-center justify-center w-36 h-20 -ml-14 shadow-lg z-20 relative rounded-sm">
+                        <i class="fas fa-award text-yellow-400 text-2xl mb-2"></i>
+                        <span class="text-sm font-semibold">
+                            Established 2025
+                        </span>
+                    </div>
+                    <div class="bg-[#0066d1] text-white flex flex-col items-center justify-center w-36 h-20 shadow-lg rounded-sm">
+                        <i class="fas fa-book-open text-yellow-400 text-2xl mb-2"></i>
+                        <span class="text-sm font-semibold">
+                            Over 1k Books
+                        </span>
+                    </div>
                 </div>
-                <a href="about.html" class="btn btn-yellow">Learn More</a>
             </div>
-        </div>
-    </section>
+        </section>
+        <section class="mt-28 md:mt-0 max-w-xl flex flex-col justify-start">
+            <h2 class="text-2xl font-semibold mb-4">
+                About E-Library
+            </h2>
+            <p class="text-sm leading-relaxed mb-6">
+                 The E-Library at Maritime University of Raja Ali Haji provides a seamless platform for accessing academic
+                resources. Designed to support learning and research, it integrates collections from diverse faculties,
+                offering knowledge anytime, anywhere.
+            </p>
+            <div class="mt-auto">
+                <button class="bg-[#f7c600] text-blue-700 text-xs px-4 py-2 rounded-sm font-semibold border border-transparent bg-[#f7c600] hover:bg-[#f9f8f4] hover:text-[#f7c600] hover:border-[#f7c600] transition-colors duration-300">
+                    Learn More
+                </button>
+            </div>
+        </section>
+    </main>
+</section>
+
 
     <footer>
         <div class="footer-container">
