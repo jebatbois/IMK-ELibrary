@@ -3,549 +3,652 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <title>
-   Maritime University E-Library
+   E-Library Homepage
   </title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <script src="script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-   * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #fff;
-    color: #000;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  /* Header Section */
-  header {
-    position: relative;
-    background-color: #1a1a1a;
-    color: #ffcc00;
-    text-align: center;
-    padding: 12px 10px 40px 10px;
-  }
-  header h1 {
-    font-weight: 700;
-    font-size: 16px;
-    margin: 0;
-    line-height: 1.2;
-  }
-  header h2 {
-    font-weight: 700;
-    font-size: 14px;
-    margin: 4px 0 12px 0;
-    line-height: 1.2;
-  }
-  header img {
-    width: 100%;
-    max-height: 180px;
-    object-fit: cover;
-    opacity: 0.3;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-  }
-  header .header-content {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  /* Search bar */
-  .search-bar {
-    display: flex;
-    justify-content: center;
-    margin-top: 8px;
-  }
-  .search-bar input[type="text"] {
-    width: 70%;
-    max-width: 600px;
-    padding: 6px 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 2px 0 0 2px;
-    outline: none;
-  }
-  .search-bar button {
-    background-color: #004080;
-    border: none;
-    color: white;
-    padding: 7px 14px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 0 2px 2px 0;
-  }
-  .search-bar button:hover {
-    background-color: #003366;
-  }
-  /* Search Results */
-  main {
-    max-width: 900px;
-    margin: 20px auto 40px auto;
-    padding: 0 10px;
-  }
-  main h3 {
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 12px;
-  }
-  .result-item {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .result-item img {
-    width: 90px;
-    height: 120px;
-    object-fit: cover;
-    flex-shrink: 0;
-    border: 1px solid #ddd;
-  }
-  .result-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  .result-title {
-    font-weight: 700;
-    font-size: 16px;
-    margin: 0 0 4px 0;
-  }
-  .result-subtitle {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 6px;
-  }
-  .result-desc {
-    font-size: 11px;
-    color: #444;
-    line-height: 1.3;
-    flex-grow: 1;
-  }
-  .result-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    justify-content: center;
-  }
-  .btn-yellow {
-    background-color: #ffcc00;
-    border: none;
-    color: #000;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 8px 16px;
-    border-radius: 2px;
-    cursor: pointer;
-    width: 110px;
-    text-align: center;
-    box-shadow: 0 0 0 1px #ffcc00 inset;
-    transition: background-color 0.2s ease;
-  }
-  .btn-yellow:hover {
-    background-color: #e6b800;
-  }
-  /* Yellow underline below description */
-  .underline-yellow {
-    width: 40px;
-    height: 2px;
-    background-color: #ffcc00;
-    margin-top: 6px;
-    border-radius: 1px;
-  }
-  /* Pagination */
-  .pagination {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 40px;
-  }
-  .pagination button {
-    background-color: #004080;
-    border: none;
-    color: white;
-    font-size: 12px;
-    padding: 4px 8px;
-    margin: 0 4px;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  .pagination button:disabled {
-    background-color: #a0a0a0;
-    cursor: default;
-  }
-  /* Related Books Section */
-  .related-books-section {
-    background-color: #f9e88f;
-    padding: 16px 10px 40px 10px;
-  }
-  .related-books-section h4 {
-    font-weight: 700;
-    font-size: 14px;
-    margin: 0 0 12px 10px;
-  }
-  .related-books-list {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding-left: 10px;
-  }
-  .related-book {
-    flex: 0 0 auto;
-    width: 90px;
-    text-align: center;
-    font-size: 11px;
-    color: #000;
-  }
-  .related-book img {
-    width: 90px;
-    height: 120px;
-    object-fit: cover;
-    border: 1px solid #ddd;
-    margin-bottom: 6px;
-  }
-  .related-book-title {
-    font-weight: 700;
-    margin-bottom: 2px;
-  }
-  .related-book-author {
-    font-weight: 400;
-    color: #333;
-  }
-  .related-books-controls {
-    position: relative;
-    margin-top: -30px;
-    margin-right: 10px;
-    text-align: right;
-  }
-  .related-books-controls button {
-    background: none;
-    border: none;
-    color: #333;
-    font-size: 18px;
-    cursor: pointer;
-    margin-left: 6px;
-  }
-  .related-books-controls button:focus {
-    outline: 2px solid #004080;
-  }
-  /* Footer */
-  footer {
-    background-color: #0073e6;
-    color: white;
-    padding: 20px 10px 40px 10px;
-    font-size: 12px;
-  }
-  .footer-top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 900px;
-    margin: 0 auto 20px auto;
-  }
-  .footer-section {
-    flex: 1 1 150px;
-    margin: 10px 10px 10px 0;
-  }
-  .footer-section h5 {
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .footer-section ul li {
-    margin-bottom: 6px;
-  }
-  .footer-section ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  .footer-section ul li a:hover {
-    text-decoration: underline;
-  }
-  .footer-bottom {
-    text-align: center;
-    font-size: 11px;
-    opacity: 0.8;
-  }
-  /* Social icons */
-  .social-icons {
-    margin-top: 10px;
-  }
-  .social-icons a {
-    color: white;
-    margin-right: 10px;
-    font-size: 16px;
-  }
-  .social-icons a:hover {
-    color: #cce6ff;
-  }
-  /* Responsive */
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 14px;
+   /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
-    header h2 {
-      font-size: 12px;
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
     }
-    .search-bar input[type="text"] {
-      width: 60%;
-      font-size: 12px;
-    }
-    .search-bar button {
-      font-size: 12px;
-      padding: 6px 10px;
-    }
-    .result-item {
-      flex-direction: column;
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #0066cc;
+      color: white;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
+      padding: 10px 40px;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    .result-item img {
-      width: 120px;
-      height: 160px;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
-    .result-info {
-      margin-top: 8px;
+
+    .logo img {
+      height: 40px;
+      margin-right: 8px;
+    }
+
+    .logo-text {
+      color: #facc15;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin-left: auto;
+      margin-right: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #facc15;
+    }
+
+    .auth-buttons .btn {
+      background-color: transparent;
+      border: 1px solid #facc15;
+      color: #facc15;
+      padding: 6px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-left: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .auth-buttons .btn:hover {
+      background-color: #facc15;
+      color: #0066cc;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center top;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 0 20px;
     }
-    .result-actions {
-      flex-direction: row;
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      color: white;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #facc15;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      white-space: pre-line;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .category-select {
+      padding: 12px;
+      border: none;
+      background-color: #f2f2f2;
+      font-size: 14px;
+      color: #333;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-button {
+      background-color: #0066cc;
+      padding: 10px 12px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
       justify-content: center;
-      margin-top: 8px;
-      gap: 12px;
     }
-    .btn-yellow {
-      width: 120px;
-      font-size: 13px;
-      padding: 8px 0;
+
+    .search-icon {
+      width: 20px;
+      height: 20px;
     }
-    .related-books-list {
-      padding-left: 0;
-      justify-content: center;
+
+    /* Main Search Results */
+    main {
+      max-width: 1200px;
+      margin: 40px auto 60px auto;
+      padding: 0 20px;
     }
-    .related-book {
-      width: 80px;
-      font-size: 10px;
+
+    main h3 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #003366;
     }
-    .related-book img {
-      width: 80px;
-      height: 110px;
-    }
-    .footer-top {
-      flex-direction: column;
+
+    .result-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
       align-items: flex-start;
     }
-    .footer-section {
-      margin: 10px 0;
+
+    .result-item img {
+      width: 280px;
+      height: 380px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .result-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .result-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #000000;
+    }
+
+    .result-subtitle {
+      font-size: 1rem;
+      color: #0066cd;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .rating-stars {
+      color: #ffcc00;
+      font-size: 1.1rem;
+      display: flex;
+      gap: 2px;
+    }
+
+    .result-desc {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
+    .read-more {
+      color: #0066cc;
+      font-weight: 600;
+      cursor: pointer;
+      width: fit-content;
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+      margin-left: auto;
+      min-width: 140px;
+    }
+    .btn-yellow {
+       padding: 12px 24px;
+       background-color: #FFD600;
+       color: #0066cd;
+       border: none;
+       border-radius: 12px;
+       font-weight: 600;
+       font-size: 16px;
+       cursor: pointer;
+       transition: background-color 0.3s, color 0.3s;
+       width: 200px;
+       text-align: center;
+    }
+
+    .btn-yellow:hover {
+       background-color: #e6b800;
+       color: #004a99;
+    }
+
+    .btn-yellowhite {
+      padding: 12px 24px;
+      background-color: white;
+      color: #0066cd;
+      border: 2px solid #FFD600;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s, border 0.3s;
+      width: 200px;
+      text-align: center;
+    }
+    .btn-yellowhite:hover {
+      background-color: #FFD600;
+      color: #004a99;
+      border-color: #e6b800;
+    }
+
+    /* Pagination */
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 60px;
+    }
+
+    .pagination button {
+      background-color: #0066cc;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      padding: 8px 16px;
+      margin: 0 6px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .pagination button:disabled {
+      background-color: #a0a0a0;
+      cursor: default;
+    }
+
+    .pagination button:hover:not(:disabled) {
+      background-color: #004a99;
+    }
+
+    /* Related Books Section */
+    .related-books-section {
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+      padding: 20px 20px 20px 20px;
+      background-color: #ffeb66;
+      border-radius: 8px;
+    }
+
+    .related-books-section h4 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #003366;
+      padding-left: 10px;
+      text-align: center;
+    }
+
+    .related-books-controls {
+      text-align: right;
+      margin-bottom: 12px;
+      padding-right: 10px;
+    }
+
+    .related-books-controls button {
+      background: none;
+      border: none;
+      color: #0066cc;
+      font-size: 1.8rem;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: color 0.3s ease;
+    }
+
+    .related-books-controls button:hover {
+      color: #facc15;
+    }
+
+    .related-books-list {
+      display: flex;
+      gap: 24px;
+      overflow: hidden;
+      padding-bottom: 10px;
+      scroll-behavior: smooth;
+      padding-left: 10px;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
       width: 100%;
     }
-  }
+
+    .related-book {
+      flex: 0 0 25%;
+      max-width: 25%;
+      box-sizing: border-box;
+      text-align: center;
+      font-size: 1rem;
+      color: #000;
+      border-radius: 8px;
+      background: #ffeb66;
+      padding: 10px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      scroll-snap-align: start;
+    }
+
+    .related-book img {
+      width: 220px;
+      height: 302px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .related-book-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #000000;
+      text-align: left;
+    }
+
+    .related-book-author {
+      color: #000000;
+      margin-bottom: 6px;
+      text-align: left;
+      font-weight: lighter;
+    }
+
+    .related-book-rating {
+      color: #ffcc00;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: left;
+      gap: 2px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      main {
+        max-width: 90vw;
+      }
+      .related-books-section {
+        max-width: 90vw;
+        padding: 20px 10px;
+      }
+      .result-item img {
+        width: 180px;
+        height: 250px;
+        margin-right: 16px;
+      }
+      .result-title {
+        font-size: 1.25rem;
+      }
+      .result-subtitle {
+        font-size: 0.9rem;
+      }
+      .result-desc {
+        font-size: 0.9rem;
+      }
+      .btn-yellow, .btn-yellowhite {
+        width: 120px;
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+      .related-book {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+      }
+      .related-book img {
+        width: 140px;
+        height: 190px;
+      }
+    }
+    @media (max-width: 600px) {
+      main {
+        max-width: 95vw;
+        margin: 20px auto 40px auto;
+        padding: 0 10px;
+      }
+      .result-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .result-item img {
+        width: 100%;
+        height: auto;
+        margin: 0 0 16px 0;
+      }
+      .result-actions {
+        flex-direction: row;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 12px;
+        width: 100%;
+        max-width: 400px;
+      }
+      .btn-yellow, .btn-yellowhite {
+        width: 100%;
+        max-width: none;
+      }
+      .related-books-list {
+        justify-content: center;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
+      .related-book {
+        flex: 0 0 80%;
+        max-width: 80%;
+        font-size: 0.9rem;
+      }
+      .related-book img {
+        width: 100%;
+        height: auto;
+      }
+    }
   </style>
  </head>
  <body>
   <header>
-   <img alt="Maritime University building with dark overlay" height="180" src="https://storage.googleapis.com/a1aa/image/c73705db-7a98-4886-431e-3e33a83469b4.jpg" width="900"/>
-   <div aria-label="Header content" class="header-content">
+   <nav aria-label="Primary Navigation" class="navbar" role="navigation">
+    <a aria-label="E-Library homepage" class="logo" href="index.html">
+     <img alt="Logo" height="40" src="images/logo.png" width="40"/>
+     <span class="logo-text">
+      E-Library
+     </span>
+    </a>
+    <ul class="nav-links">
+     <li>
+      <a href="index.html">
+       Home
+      </a>
+     </li>
+     <li>
+      <a href="catalogue.html">
+       Book Catalogue
+      </a>
+     </li>
+     <li>
+      <a href="saved.html">
+       Saved
+      </a>
+     </li>
+     <li>
+      <a href="guide.html">
+       Guide
+      </a>
+     </li>
+     <li>
+      <a href="about.html">
+       About us
+      </a>
+     </li>
+    </ul>
+    <div class="auth-buttons">
+     <a class="btn" href="login.html" role="button">
+      Log in
+     </a>
+     <a class="btn" href="signup.html" role="button">
+      Sign Up
+     </a>
+    </div>
+   </nav>
+  </header>
+  <section aria-label="Hero section with university introduction and search" class="hero" role="banner">
+   <div class="overlay"></div>
+   <div class="hero-content">
     <h1>
-     Maritime University of Raja Ali Haji
+     Maritime University of Raja Ali Haji E-Library
     </h1>
-    <h2>
-     E-Library
-    </h2>
-    <form aria-label="Search books" class="search-bar" role="search" id="searchForm">
-     <input aria-label="Search input" id="searchInput" placeholder="Search for books, authors, or topics" type="text"/>
-     <button aria-label="Search button" type="submit">
-      <i class="fas fa-search">
-      </i>
-     </button>
+    <form aria-label="Search books form" class="search-bar" id="searchForm" role="search">
+     <select aria-label="Select book category" class="category-select" id="categorySelect">
+      <option value="all">
+       All Categories
+      </option>
+      <option value="fiction">
+       Fiction
+      </option>
+      <option value="science">
+       Science
+      </option>
+      <option value="history">
+       History
+      </option>
+      <option value="philosophy">
+       Philosophy
+      </option>
+      <option value="self-help">
+       Self Help
+      </option>
+     </select>
+     <input aria-label="Search input" class="search-input" id="searchInput" placeholder="Search for book title, author, category" type="text"/>
+     <button aria-label="Search button" class="search-button" type="submit">
+      <img src="images/search-icon.png" alt="Search" class="search-icon" />
+    </button>
     </form>
    </div>
-  </header>
+  </section>
   <main>
    <h3>
     Search Results
    </h3>
-   <div id="resultsContainer" aria-live="polite" aria-atomic="true">
-    <!-- Search results will appear here -->
-   </div>
+   <div id="resultsContainer" aria-live="polite" aria-atomic="true"></div>
    <div aria-label="Pagination" class="pagination" role="navigation">
-    <button aria-label="Previous page" disabled="">
-     <i class="fas fa-angle-left">
-     </i>
+    <button aria-label="Previous page" disabled="" id="prevPageBtn">
+     <i class="fas fa-angle-left"></i>
     </button>
-    <button aria-label="Page 1">
-     1
-    </button>
-    <button aria-label="Page 2">
-     2
-    </button>
-    <button aria-label="Next page">
-     <i class="fas fa-angle-right">
-     </i>
+    <button aria-label="Page 1" class="page-btn active" data-page="1">1</button>
+    <button aria-label="Page 2" class="page-btn" data-page="2">2</button>
+    <button aria-label="Page 3" class="page-btn" data-page="3">3</button>
+    <button aria-label="Next page" id="nextPageBtn">
+     <i class="fas fa-angle-right"></i>
     </button>
    </div>
   </main>
   <section aria-labelledby="related-books-title" class="related-books-section">
-   <h4 id="related-books-title">
-    Books Related to this item
-   </h4>
+   <h4 id="related-books-title" style="text-align: left;">Books Related to this item</h4>
    <div aria-label="Related books navigation controls" class="related-books-controls">
-    <button aria-label="Scroll related books left">
-     <i class="fas fa-angle-left">
-     </i>
+    <button aria-label="Scroll related books left" id="relatedPrevBtn">
+     <i class="fas fa-angle-left"></i>
     </button>
-    <button aria-label="Scroll related books right">
-     <i class="fas fa-angle-right">
-     </i>
+    <button aria-label="Scroll related books right" id="relatedNextBtn">
+     <i class="fas fa-angle-right"></i>
     </button>
    </div>
-   <div class="related-books-list" tabindex="0">
-    <div aria-label="Related book Gadis Kretek" class="related-book">
-     <img alt="Book cover of Gadis Kretek showing a blue cover with a woman and text" height="120" src="https://storage.googleapis.com/a1aa/image/bcdcec9c-dfd1-419d-818c-46ffb989d716.jpg" width="90"/>
-     <div class="related-book-title">
-      Gadis Kretek
-     </div>
-     <div class="related-book-author">
-      Latief Mahmud
-     </div>
-    </div>
-    <div aria-label="Related book Student Hidjo" class="related-book">
-     <img alt="Book cover of Student Hidjo showing a brownish cover with a painting of a street and text" height="120" src="https://storage.googleapis.com/a1aa/image/5a35ddcf-e7de-4fbc-c74c-d6f4738b7016.jpg" width="90"/>
-     <div class="related-book-title">
-      Student Hidjo
-     </div>
-     <div class="related-book-author">
-      Pramoedya Ananta Toer
-     </div>
-    </div>
-    <div aria-label="Related book Laut Bercerita" class="related-book">
-     <img alt="Book cover of Laut Bercerita showing a blue cover with an ocean scene and text" height="120" src="https://storage.googleapis.com/a1aa/image/84e18820-4cb5-4f48-77f5-61ce1ae8bd15.jpg" width="90"/>
-     <div class="related-book-title">
-      Laut Bercerita
-     </div>
-     <div class="related-book-author">
-      Leila S. Chudori
-     </div>
-    </div>
-    <div aria-label="Related book May Havelaar" class="related-book">
-     <img alt="Book cover of May Havelaar showing a brown cover with a painting and text" height="120" src="https://storage.googleapis.com/a1aa/image/eeaaa46c-808d-4a2d-9be4-af277951e59e.jpg" width="90"/>
-     <div class="related-book-title">
-      May Havelaar
-     </div>
-     <div class="related-book-author">
-      Multatuli
-     </div>
-    </div>
+   <div class="related-books-list" id="relatedBooksList" tabindex="0" aria-live="polite" aria-atomic="true">
+    <!-- Related books will be rendered here -->
    </div>
   </section>
-  <footer>
-   <div class="footer-top" role="contentinfo">
-    <div aria-label="About section" class="footer-section">
-     <h5>
-      About
-     </h5>
-     <ul>
-      <li>
-       <a href="#">
-        About Us
-       </a>
-      </li>
-      <li>
-       <a href="#">
-        Contact
-       </a>
-      </li>
-      <li>
-       <a href="#">
-        Careers
-       </a>
-      </li>
-     </ul>
+  <footer class="text-white py-8 mt-auto">
+    <div class="footer-container max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between">
+      <div class="footer-left mb-6 md:mb-0">
+        <div class="logo text-lg font-bold">E-Library</div>
+        <p class="text-sm">© 2025 E-Library. All rights reserved.</p>
+      </div>
+      <div class="footer-right flex flex-col md:flex-row gap-8">
+        <div class="footer-links flex flex-col gap-2">
+          <a href="catalogue.html">Book Catalogue</a>
+          <a href="saved.html">Saved</a>
+          <a href="guide.html">Guide</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="footer-contact text-sm">
+          <p>Jl. Politeknik, Senggarang Kec. Tanjungpinang Kota</p>
+          <p>Email: elibrary@umrah.ac.id</p>
+          <p>Phone: +62-345-67899</p>
+        </div>
+      </div>
     </div>
-    <div aria-label="Pages section" class="footer-section">
-     <h5>
-      Pages
-     </h5>
-     <ul>
-      <li>
-       <a href="#">
-        Home
-       </a>
-      </li>
-      <li>
-       <a href="#">
-        Library
-       </a>
-      </li>
-      <li>
-       <a href="#">
-        Events
-       </a>
-      </li>
-      <li>
-       <a href="#">
-        News
-       </a>
-      </li>
-     </ul>
-    </div>
-    <div aria-label="Downloads section" class="footer-section">
-     <h5>
-      Downloads
-     </h5>
-     <ul>
-      <li>
-       <a href="#">
-        E-books
-       </a>
-      </li>
-      <li>
-       <a href="#">
-        Audiobooks
-       </a>
-      </li>
-      <li>
-       <a href="#">
-        Research Papers
-       </a>
-      </li>
-     </ul>
-    </div>
-    <div aria-label="Social media section" class="footer-section">
-     <h5>
-      Follow Us
-     </h5>
-     <div class="social-icons" role="list">
-      <a aria-label="Facebook" href="#">
-       <i class="fab fa-facebook-f">
-       </i>
-      </a>
-      <a aria-label="Twitter" href="#">
-       <i class="fab fa-twitter">
-       </i>
-      </a>
-      <a aria-label="Instagram" href="#">
-       <i class="fab fa-instagram">
-       </i>
-      </a>
-      <a aria-label="LinkedIn" href="#">
-       <i class="fab fa-linkedin-in">
-       </i>
-      </a>
-     </div>
-    </div>
-   </div>
-   <div aria-label="Copyright and credits" class="footer-bottom">
-    © 2024 Maritime University of Raja Ali Haji. All rights reserved.
-   </div>
   </footer>
   <script>
    const books = [
@@ -556,7 +659,8 @@
       rack: "Rak 9D0001",
       desc: "Latar Belakang mengisahkan kehidupan di Indonesia pada masa kolonial Belanda di Pulau Jawa. Demikianlah melukiskan realitas kolonialisme. Dengan konflik menarik, membangun narasi dan ketegangan. Dapat digunakan untuk mendukung pembelajaran sejarah.",
       img: "https://storage.googleapis.com/a1aa/image/0643b043-a75a-4a23-cc60-5093ea9494f3.jpg",
-      alt: "Book cover of Bumi Manusia showing a yellowish old style cover with text and illustration"
+      alt: "Book cover of Bumi Manusia showing a yellowish old style cover with text and illustration",
+      category: "history"
     },
     {
       title: "Jejak Langkah",
@@ -565,7 +669,8 @@
       rack: "Rak 9D0002",
       desc: "Latar Belakang mengisahkan kehidupan di Indonesia pada masa kolonial Belanda di Pulau Jawa. Demikianlah melukiskan realitas kolonialisme. Dengan konflik menarik, membangun narasi dan ketegangan. Dapat digunakan untuk mendukung pembelajaran sejarah.",
       img: "https://storage.googleapis.com/a1aa/image/e979a1e0-dc21-4c8a-80ff-287a3199d62f.jpg",
-      alt: "Book cover of Jejak Langkah showing a brownish cover with a portrait of a man and text"
+      alt: "Book cover of Jejak Langkah showing a brownish cover with a portrait of a man and text",
+      category: "history"
     },
     {
       title: "Anak Semua Bangsa",
@@ -574,7 +679,8 @@
       rack: "Rak 9D0003",
       desc: "Latar Belakang mengisahkan kehidupan di Indonesia pada masa kolonial Belanda di Pulau Jawa. Demikianlah melukiskan realitas kolonialisme. Dengan konflik menarik, membangun narasi dan ketegangan. Dapat digunakan untuk mendukung pembelajaran sejarah.",
       img: "https://storage.googleapis.com/a1aa/image/b634f840-414f-4128-6ad0-a0b2de6ed324.jpg",
-      alt: "Book cover of Anak Semua Bangsa showing a white cover with text and a small illustration"
+      alt: "Book cover of Anak Semua Bangsa showing a white cover with text and a small illustration",
+      category: "history"
     },
     {
       title: "Rumah Kaca",
@@ -583,52 +689,289 @@
       rack: "Rak 9D0004",
       desc: "Latar Belakang mengisahkan kehidupan di Indonesia pada masa kolonial Belanda di Pulau Jawa. Demikianlah melukiskan realitas kolonialisme. Dengan konflik menarik, membangun narasi dan ketegangan. Dapat digunakan untuk mendukung pembelajaran sejarah.",
       img: "https://storage.googleapis.com/a1aa/image/39f9192f-4e34-455e-ac04-67d0b49975cd.jpg",
-      alt: "Book cover of Rumah Kaca showing a grayish cover with a photo of a man and text"
+      alt: "Book cover of Rumah Kaca showing a grayish cover with a photo of a man and text",
+      category: "history"
+    },
+    {
+      title: "Materialisme, Dialektika, dan Logika (MADILOG)",
+      author: "Tan Malaka",
+      rating: 5.0,
+      rack: "Rak 9D0005",
+      desc: "Buku filsafat yang membahas materialisme dan dialektika dengan pendekatan logika yang mendalam.",
+      img: "https://storage.googleapis.com/a1aa/image/madilog.jpg",
+      alt: "Book cover of MADILOG showing a red and black cover with text",
+      category: "philosophy"
+    },
+    {
+      title: "Laskar Pelangi",
+      author: "Andrea Hirata",
+      rating: 5.0,
+      rack: "Rak 9D0006",
+      desc: "Novel fiksi yang menceritakan perjuangan anak-anak di Belitung untuk mendapatkan pendidikan.",
+      img: "https://storage.googleapis.com/a1aa/image/laskar-pelangi.jpg",
+      alt: "Book cover of Laskar Pelangi showing children and colorful background",
+      category: "fiction"
+    },
+    {
+      title: "Catatan Seorang Demonstran",
+      author: "Soe Hok Gie",
+      rating: 5.0,
+      rack: "Rak 9D0007",
+      desc: "Memoar dan catatan perjuangan aktivis mahasiswa Indonesia pada era 1960-an.",
+      img: "https://storage.googleapis.com/a1aa/image/catatan-demonstran.jpg",
+      alt: "Book cover of Catatan Seorang Demonstran showing a black and white photo",
+      category: "history"
+    },
+    {
+      title: "The Subtle Art of Not Giving A F*ck",
+      author: "Mark Manson",
+      rating: 5.0,
+      rack: "Rak 9D0008",
+      desc: "Buku self-help yang mengajarkan cara hidup dengan fokus pada hal-hal penting.",
+      img: "https://storage.googleapis.com/a1aa/image/subtle-art.jpg",
+      alt: "Book cover of The Subtle Art of Not Giving A F*ck showing a black cover with text",
+      category: "self-help"
+    }
+   ];
+
+   const relatedBooks = [
+    {
+      title: "Gadis Kretek",
+      author: "Latief Mahmud",
+      rating: 5,
+      img: "https://storage.googleapis.com/a1aa/image/bcdcec9c-dfd1-419d-818c-46ffb989d716.jpg",
+      alt: "Book cover of Gadis Kretek showing a blue cover with a woman and text"
+    },
+    {
+      title: "Student Hidjo",
+      author: "Pramoedya Ananta Toer",
+      rating: 5,
+      img: "https://storage.googleapis.com/a1aa/image/5a35ddcf-e7de-4fbc-c74c-d6f4738b7016.jpg",
+      alt: "Book cover of Student Hidjo showing a brownish cover with a painting of a street and text"
+    },
+    {
+      title: "Laut Bercerita",
+      author: "Leila S. Chudori",
+      rating: 5,
+      img: "https://storage.googleapis.com/a1aa/image/84e18820-4cb5-4f48-77f5-61ce1ae8bd15.jpg",
+      alt: "Book cover of Laut Bercerita showing a blue cover with an ocean scene and text"
+    },
+    {
+      title: "May Havelaar",
+      author: "Multatuli",
+      rating: 5,
+      img: "https://storage.googleapis.com/a1aa/image/eeaaa46c-808d-4a2d-9be4-af277951e59e.jpg",
+      alt: "Book cover of May Havelaar showing a brown cover with a painting and text"
+    },
+    {
+      title: "New Book 1",
+      author: "Author 1",
+      rating: 4,
+      img: "https://storage.googleapis.com/a1aa/image/dc2041e8-82b7-4d62-7737-b904f7903e12.jpg",
+      alt: "Book cover of New Book 1 showing a colorful cover with text"
+    },
+    {
+      title: "New Book 2",
+      author: "Author 2",
+      rating: 3,
+      img: "https://storage.googleapis.com/a1aa/image/2bd52e11-8d1b-44e7-d18f-eea4664d40c4.jpg",
+      alt: "Book cover of New Book 2 showing a colorful cover with text"
+    },
+    {
+      title: "New Book 3",
+      author: "Author 3",
+      rating: 5,
+      img: "https://storage.googleapis.com/a1aa/image/66d47672-22e1-439e-2aa2-2972bc9fb946.jpg",
+      alt: "Book cover of New Book 3 showing a colorful cover with text"
     }
    ];
 
    const resultsContainer = document.getElementById('resultsContainer');
    const searchForm = document.getElementById('searchForm');
    const searchInput = document.getElementById('searchInput');
+   const categorySelect = document.getElementById('categorySelect');
+   const prevPageBtn = document.getElementById('prevPageBtn');
+   const nextPageBtn = document.getElementById('nextPageBtn');
+   const pageButtons = document.querySelectorAll('.page-btn');
+
+   const relatedBooksList = document.getElementById('relatedBooksList');
+   const relatedPrevBtn = document.getElementById('relatedPrevBtn');
+   const relatedNextBtn = document.getElementById('relatedNextBtn');
+
+   const itemsPerPage = 4;
+   let currentPage = 1;
+   let filteredBooks = [...books];
+
+   let relatedCurrentPage = 1;
+   const relatedItemsPerPage = 4;
+
+   function renderStars(rating) {
+     const fullStars = Math.floor(rating);
+     const halfStar = rating % 1 >= 0.5;
+     let starsHtml = '';
+     for (let i = 0; i < fullStars; i++) {
+       starsHtml += '<i class="fas fa-star"></i>';
+     }
+     if (halfStar) {
+       starsHtml += '<i class="fas fa-star-half-alt"></i>';
+     }
+     const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+     for (let i = 0; i < emptyStars; i++) {
+       starsHtml += '<i class="far fa-star"></i>';
+     }
+     return starsHtml;
+   }
 
    function renderBooks(bookList) {
      if (bookList.length === 0) {
        resultsContainer.innerHTML = '<p>No books found.</p>';
        return;
      }
-     resultsContainer.innerHTML = bookList.map(book => `
-      <article aria-label="Book result ${book.title}" class="result-item">
-        <img src="${book.img}" alt="${book.alt}" width="90" height="120" />
-        <div class="result-info">
-          <h4 class="result-title">${book.title}</h4>
-          <div class="result-subtitle">${book.author} &nbsp;•&nbsp; ${book.rating} <i class="fas fa-star" style="color:#ffcc00;"></i> &nbsp;•&nbsp; ${book.rack}</div>
-          <p class="result-desc">${book.desc}</p>
-          <div class="underline-yellow"></div>
-        </div>
-        <div class="result-actions">
-          <button type="button" class="btn-yellow" aria-label="Borrow ${book.title}">Borrow Book</button>
-          <button type="button" class="btn-yellow" aria-label="Save ${book.title} to list">Save to List</button>
-        </div>
-      </article>
-     `).join('');
+     // Pagination slice
+     const start = (currentPage - 1) * itemsPerPage;
+     const end = start + itemsPerPage;
+     const pagedBooks = bookList.slice(start, end);
+
+    resultsContainer.innerHTML = pagedBooks.map(book => `
+  <article aria-label="Book result ${book.title}" class="result-item">
+    <img src="${book.img}" alt="${book.alt}" width="280" height="380" />
+    <div class="result-info">
+      <h4 class="result-title">${book.title}</h4>
+      <div class="result-subtitle">
+        <span class="author">${book.author}</span>
+      </div>
+      <div>
+        <span class="rating-stars" aria-label="Rating: ${book.rating} out of 5 stars">${renderStars(book.rating)}</span>
+      </div>
+      <p class="result-desc">${book.desc}</p>
+      <div class="read-more" tabindex="0" role="button" aria-label="Read more about ${book.title}">Read more</div>
+    </div>
+    <div class="result-actions">
+      <button type="button" class="btn-yellow borrow-btn" aria-label="Borrow ${book.title}">Borrow Book</button>
+      <button type="button" class="btn-yellowhite saved-btn" aria-label="Save ${book.title} to list">Save Later</button>
+    </div>
+  </article>
+`).join('');
+
+// ✅ Tambahkan event listener untuk tombol "Borrow Book"
+document.querySelectorAll(".borrow-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    window.location.href = "form.html";
+  });
+});
+
+document.querySelectorAll(".saved-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    window.location.href = "saved.html";
+  });
+});
+     updatePagination(bookList.length);
    }
 
-   // Initial render all books
+   function updatePagination(totalItems) {
+     const totalPages = Math.ceil(totalItems / itemsPerPage);
+     prevPageBtn.disabled = currentPage === 1;
+     nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+     pageButtons.forEach(btn => {
+       const page = Number(btn.dataset.page);
+       btn.disabled = page > totalPages;
+       btn.classList.toggle('active', page === currentPage);
+     });
+   }
+
+   function filterBooks() {
+     const query = searchInput.value.trim().toLowerCase();
+     const category = categorySelect.value;
+
+     filteredBooks = books.filter(book => {
+       const matchesCategory = category === 'all' || book.category === category;
+       const matchesQuery =
+         book.title.toLowerCase().includes(query) ||
+         book.author.toLowerCase().includes(query) ||
+         book.desc.toLowerCase().includes(query);
+       return matchesCategory && matchesQuery;
+     });
+     currentPage = 1;
+     renderBooks(filteredBooks);
+   }
+
+   function renderRelatedBooks() {
+     relatedBooksList.innerHTML = '';
+     const start = (relatedCurrentPage - 1) * relatedItemsPerPage;
+     const end = start + relatedItemsPerPage;
+     const pagedRelated = relatedBooks.slice(start, end);
+
+     pagedRelated.forEach(book => {
+       const bookElem = document.createElement('div');
+       bookElem.className = 'related-book';
+       bookElem.setAttribute('aria-label', `Related book ${book.title}`);
+       bookElem.innerHTML = `
+         <img src="${book.img}" alt="${book.alt}" height="220" width="160" />
+         <div class="related-book-title">${book.title}</div>
+         <div class="related-book-author">${book.author}</div>
+         <div class="related-book-rating" aria-label="Rating: ${book.rating} stars">
+           ${renderStars(book.rating)}
+         </div>
+       `;
+       relatedBooksList.appendChild(bookElem);
+     });
+
+     // Disable/enable buttons
+     relatedPrevBtn.disabled = relatedCurrentPage === 1;
+     relatedNextBtn.disabled = relatedCurrentPage >= Math.ceil(relatedBooks.length / relatedItemsPerPage);
+   }
+
+   // Initial render all books and related books
    renderBooks(books);
+   renderRelatedBooks();
 
    searchForm.addEventListener('submit', e => {
      e.preventDefault();
-     const query = searchInput.value.trim().toLowerCase();
-     if (!query) {
-       renderBooks(books);
-       return;
+     filterBooks();
+   });
+
+   categorySelect.addEventListener('change', () => {
+     filterBooks();
+   });
+
+   prevPageBtn.addEventListener('click', () => {
+     if (currentPage > 1) {
+       currentPage--;
+       renderBooks(filteredBooks);
      }
-     const filtered = books.filter(book =>
-       book.title.toLowerCase().includes(query) ||
-       book.author.toLowerCase().includes(query) ||
-       book.desc.toLowerCase().includes(query)
-     );
-     renderBooks(filtered);
+   });
+
+   nextPageBtn.addEventListener('click', () => {
+     const totalPages = Math.ceil(filteredBooks.length / itemsPerPage);
+     if (currentPage < totalPages) {
+       currentPage++;
+       renderBooks(filteredBooks);
+     }
+   });
+
+   pageButtons.forEach(btn => {
+     btn.addEventListener('click', () => {
+       const page = Number(btn.dataset.page);
+       if (page !== currentPage) {
+         currentPage = page;
+         renderBooks(filteredBooks);
+       }
+     });
+   });
+
+   relatedPrevBtn.addEventListener('click', () => {
+     if (relatedCurrentPage > 1) {
+       relatedCurrentPage--;
+       renderRelatedBooks();
+     }
+   });
+
+   relatedNextBtn.addEventListener('click', () => {
+     if (relatedCurrentPage < Math.ceil(relatedBooks.length / relatedItemsPerPage)) {
+       relatedCurrentPage++;
+       renderRelatedBooks();
+     }
    });
   </script>
  </body>
