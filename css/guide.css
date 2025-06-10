@@ -1,0 +1,123 @@
+/* guide.css */
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #ffffff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* Banner */
+.guide-banner {
+    position: relative;
+    background: url('../images/background.jpg') no-repeat center top;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* gelap transparan */
+    z-index: 1;
+  }
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+    color: white;
+  }
+
+.guide-banner h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #facc15;
+    margin-bottom: 20px;
+  }
+
+.guide-banner p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+.guide-header {
+  padding: 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.guide-title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.guide-subtitle {
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+/* Content Container */
+.guide-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.guide-section {
+  margin-bottom: 50px;
+}
+
+.guide-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.guide-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+/* Footer specific spacing */
+footer {
+  margin-top: 60px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guide-banner {
+    padding: 60px 15px;
+  }
+
+  .guide-banner h1 {
+    font-size: 2rem;
+  }
+
+  .guide-container {
+    padding: 0 15px;
+  }
+
+  .guide-section h2 {
+    font-size: 1.25rem;
+  }
+}
