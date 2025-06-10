@@ -832,25 +832,39 @@
      const end = start + itemsPerPage;
      const pagedBooks = bookList.slice(start, end);
 
-     resultsContainer.innerHTML = pagedBooks.map(book => `
-      <article aria-label="Book result ${book.title}" class="result-item">
-        <img src="${book.img}" alt="${book.alt}" width="280" height="380" />
-        <div class="result-info">
-          <h4 class="result-title">${book.title}</h4>
-          <div class="result-subtitle">
-            <span class="author">${book.author}</span> </div>
-           <div> <span class="rating-stars" aria-label="Rating: ${book.rating} out of 5 stars">${renderStars(book.rating)}</span>
-        </div>
-          <p class="result-desc">${book.desc}</p>
-          <div class="read-more" tabindex="0" role="button" aria-label="Read more about ${book.title}">Read more</div>
-        </div>
-        <div class="result-actions">
-          <button type="button" class="btn-yellow" aria-label="Borrow ${book.title}">Borrow Book</button>
-          <button type="button" class="btn-yellowhite" aria-label="Save ${book.title} to list">Save to List</button>
-        </div>
-      </article>
-     `).join('');
+    resultsContainer.innerHTML = pagedBooks.map(book => `
+  <article aria-label="Book result ${book.title}" class="result-item">
+    <img src="${book.img}" alt="${book.alt}" width="280" height="380" />
+    <div class="result-info">
+      <h4 class="result-title">${book.title}</h4>
+      <div class="result-subtitle">
+        <span class="author">${book.author}</span>
+      </div>
+      <div>
+        <span class="rating-stars" aria-label="Rating: ${book.rating} out of 5 stars">${renderStars(book.rating)}</span>
+      </div>
+      <p class="result-desc">${book.desc}</p>
+      <div class="read-more" tabindex="0" role="button" aria-label="Read more about ${book.title}">Read more</div>
+    </div>
+    <div class="result-actions">
+      <button type="button" class="btn-yellow borrow-btn" aria-label="Borrow ${book.title}">Borrow Book</button>
+      <button type="button" class="btn-yellowhite saved-btn" aria-label="Save ${book.title} to list">Save Later</button>
+    </div>
+  </article>
+`).join('');
 
+// ✅ Tambahkan event listener untuk tombol "Borrow Book"
+document.querySelectorAll(".borrow-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    window.location.href = "form.html";
+  });
+});
+
+document.querySelectorAll(".saved-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    window.location.href = "saved.html";
+  });
+});
      updatePagination(bookList.length);
    }
 
