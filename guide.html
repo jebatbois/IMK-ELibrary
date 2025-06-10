@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guide | E-Library</title>
-  <link rel="stylesheet" href="css/guide.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/guide.css" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -43,7 +44,7 @@
   <!-- Main Content -->
   <main class="guide-container">
     <section>
-      <h2>How To Sign Up</h2>
+      <h2 class="text-3xl font-bold mb-2">How To Sign Up</h2>
       <p>To use this digital library service, you need to create an account first. On the Sign Up page, please fill in the following information:</p>
       <p>Enter your full name in the Name field, then type your active email address, which will be used to log in and receive notifications. In the Student ID field, enter your Student Number (NIM) if you are a student at Universitas Maritim Raja Ali Haji (UMRAH). If you're not a UMRAH student, you can leave this field empty.</p>
       <p>Next, create a secure password in the Password field and re-enter it in the Confirm Password field to ensure accuracy. Both passwords must match.</p>
@@ -51,13 +52,13 @@
     </section>
 
     <section>
-      <h2>How To Login</h2>
+      <h2 class="text-3xl font-bold mt-6 mb-2">How To Login</h2>
       <p>To log in, go to the login page where you'll see two fields: one for your email and another for your password. Enter the email address you registered with, followed by your correct password. Then, click the "Login" button to access your account and start borrowing e-books.</p>
       <p>If you’ve forgotten your password, don’t worry — simply click the "Forgot Password?" link below the form. You’ll be redirected to the password reset page, where you can enter your email address to receive instructions via email. Make sure to use your registered email so the process goes smoothly.</p>
     </section>
 
     <section>
-      <h2>How To Borrow Book</h2>
+      <h2 class="text-3xl font-bold mt-6 mb-2">How To Borrow Book</h2>
       <p>Borrowing a book on our digital library platform is designed to be quick and simple. There are two main ways you can borrow a book: by browsing directly through the Book Catalogue or by using the Search feature to find a specific title.</p>
       <p>If you prefer to explore manually, you can scroll through the Book Catalogue and click on any book cover or title to view more details. On the book’s detail page, you’ll find a "Borrow Book" button. Simply click this button to borrow the book instantly—provided that copies are currently available. If the book is already borrowed by other users and no copies remain, the button will be disabled or replaced with a message indicating that the book is unavailable for borrowing at the moment.</p>
       <p>Alternatively, if you’re looking for a specific book or author, you can use the search bar at the top of the page. Once the search results are displayed, click on the book you’re interested in. You’ll be taken to the same detail page, where you can proceed to borrow the book just as described above.</p>
@@ -65,28 +66,28 @@
     </section>
 
     <section>
-      <h2>How To Save Book</h2>
+      <h2 class="text-3xl font-bold mt-6 mb-2">How To Save Book</h2>
       <p>If you find an interesting book on the Book Catalogue page but don’t want to borrow it right away, you can use the “Save for Later” feature. This allows you to keep books in your personal list so you can easily find them again later.</p>
       <p>To save a book, simply click the "Save for Later" button available on each book card or detail page. The book will automatically be added to your Saved Books list, which you can access from your profile or the navigation menu.</p>
       <p>This feature is perfect for creating a personal reading list without borrowing immediately. You can return to it anytime and borrow the saved books with just one click.</p>
     </section>
 
     <section>
-      <h2>How to View Your Saved Books</h2>
+      <h2 class="text-3xl font-bold mt-6 mb-2">How to View Your Saved Books</h2>
       <p>After saving books using the "Save for Later" feature, you can easily view them by clicking the "Saved" button located on the website’s navbar (top navigation bar).</p>
       <p>Once clicked, you’ll be taken to a dedicated page that displays all the books you’ve saved. Each book will appear with details like the title, author, and cover image, along with buttons to borrow the book or remove it from your saved list.</p>
       <p>This feature helps you keep track of books you’re interested in, without the need to search again. So whenever you’re ready to read, just head to your Saved Books page, choose a title, and start reading or borrowing with ease.</p>
     </section>
 
     <section>
-      <h2>Privacy Policy</h2>
+      <h2 class="text-3xl font-bold mt-6 mb-2">Privacy Policy</h2>
       <p>We take your privacy seriously and are committed to protecting your personal information. We may share or use your information when you register for an account or interact with the platform, but we only collect certain personal details, such as your full name, email address, and student identification number if you are a Universitas Maritim Raja Ali Haji (UMRAH). This information allows us to identify you as a user.</p>
       <p>All user data is stored securely and is used solely for account and borrowing purposes. We do not sell or share your information with third parties without your explicit consent, except when legally required to do so. We apply appropriate digital security measures, including encrypted password storage and secure connections, to protect your data from unauthorized access, disclosure, or loss.</p>
       <p>By using this platform, you agree to the collection and use of your information as described in this policy. You also acknowledge that, while we do our best to secure your information, no system can be entirely immune from potential threats. For this reason, we encourage you to use strong passwords and avoid sharing your account credentials with others. Should you wish to update, correct, or delete your personal data, please contact our support team, and we will be happy to assist you in accordance with applicable data protection regulations.</p>
     </section>
 
     <section>
-      <h2>Return Policy</h2>
+      <h2 class="text-3xl font-bold mt-6 mb-2">Return Policy</h2>
       <p>At our digital library platform, we aim to provide a smooth and user-friendly borrowing experience. All borrowed e-books are subject to a set borrowing period, which will be clearly indicated at the time of checkout. Once this period ends, the system will automatically revoke access to the e-book—there is no need for users to manually return the book.</p>
       <p>However, if users wish to return a book before the due date, they can do so by visiting the "My Books" section. Each borrowed book will have a "Return" button. Clicking this will instantly remove the book from your borrowed list and make it available again for others to borrow.</p>
       <p>We do not impose any late return fees, as the system handles expiration automatically. However, repeated misuse of the system—such as attempting to bypass return deadlines, hoarding books without reading, or...</p>
@@ -94,26 +95,56 @@
   </main>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-left">
-        <div class="logo">E-Library</div>
-        <p>© 2025 E-Library. All rights reserved.</p>
+  <footer class="bg-#0066cd text-yellow-400 py-8">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Logo & Sosial Media -->
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <img src="images/logo.png" alt="Logo" class="w-10 h-10" />
+        <span class="text-lg font-bold">E-Library</span>
       </div>
-      <div class="footer-right">
-        <div class="footer-links">
-          <a href="catalogue.html">Book Catalogue</a>
-          <a href="saved.html">Saved</a>
-          <a href="guide.html">Guide</a>
-          <a href="about.html">About</a>
-        </div>
-        <div class="footer-contact">
-          <p>Jl. Politeknik, Senggarang Kec. Tanjungpinang Kota</p>
-          <p>Email: elibrary@umrah.ac.id</p>
-          <p>Phone: +62-345-67899</p>
-        </div>
+      <div class="flex space-x-4 text-xl">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
-  </footer>
+
+    <!-- Navigasi Halaman -->
+    <div class="grid grid-cols-2 gap-4 text-sm">
+      <div class="flex flex-col space-y-1">
+        <span class="font-bold">Pages</span>
+        <a href="index.html">Home</a>
+        <a href="catalogue.html">Book Catalogue</a>
+        <a href="saved.html">Saved</a>
+        <a href="guide.html">Guide</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="flex flex-col space-y-1">
+        <span class="invisible">Hidden</span> <!-- agar sejajar -->
+        <a href="#">Return Policy</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+    </div>
+
+    <!-- Kontak -->
+    <div class="text-sm">
+      <span class="font-bold block mb-2">Connect with us</span>
+      <p class="flex items-start gap-2">
+        <i class="fas fa-map-marker-alt mt-1"></i>
+        Jalan Politeknik, Senggarang, Kec. Tj. Pinang Kota, Kota Tanjung Pinang, Kepulauan Riau 29115
+      </p>
+      <p class="flex items-center gap-2 mt-2">
+        <i class="fas fa-phone"></i> 1-23-345–6789
+      </p>
+      <p class="flex items-center gap-2 mt-2">
+        <i class="fas fa-envelope"></i> elibrary@umrah.ac.id
+      </p>
+    </div>
+  </div>
+</footer>
 </body>
+
 </html>
