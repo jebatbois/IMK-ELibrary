@@ -1,113 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>E-Library Sign Up</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link href="css/login.css" rel="stylesheet" />
-  </head>
-  <body class="min-h-screen flex">
-    <div class="w-1/2 min-h-screen flex flex-col justify-center px-16 bg-white">
-      <div
-        class="mb-12 inline-flex items-center space-x-3 bg-blue-600 rounded-md px-4 py-2 w-max"
-      >
-        <img
-          alt="E-Library logo"
-          class="rounded-md"
-          height="60"
-          src="images/logo.png"
-          width="100"
-        />
-        <span class="text-yellow-400 font-semibold text-base select-none">
-          E-Library
-        </span>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-Library Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .input-field {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 0.375rem;
+      outline: none;
+    }
+    .input-field:focus {
+      border-color: #fbbf24;
+      box-shadow: 0 0 0 1px #fbbf24;
+    }
+    .btn-submit {
+      background-color: #fbbf24;
+      color: #2563eb; /* Blue text */
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+    }
+    .btn-submit:hover {
+      background-color: #fbbf24;
+    }
+    .toggle-button {
+      position: absolute;
+      top: 50%;
+      right: 0.75rem;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex">
+  <div class="w-1/2 min-h-screen flex flex-col justify-center px-16 bg-white">
+    <div class="mb-12 inline-flex items-center space-x-3 bg-blue-600 rounded-md px-4 py-2 w-max">
+      <img alt="E-Library logo" class="rounded-md" height="60" src="images/logo.png" width="100" />
+      <span class="text-yellow-400 font-semibold text-base select-none">E-Library</span>
+    </div>
+    <h1 class="text-4xl font-extrabold text-blue-600 mb-8">SIGN UP</h1>
+    <form class="space-y-6 max-w-md relative" onsubmit="validateSignupForm(event)">
+      <div>
+        <input class="input-field" placeholder="Name" type="text" required />
       </div>
-      <h1 class="text-4xl font-extrabold text-blue-600 mb-8">SIGN UP</h1>
-      <form
-        class="space-y-6 max-w-md relative"
-        onsubmit="event.preventDefault(); window.location.href='login.html';"
-      >
-        <div>
-          <input
-            class="input-field"
-            placeholder="Name"
-            type="text"
-            required
-          />
-        </div>
-        <div>
-          <input
-            class="input-field"
-            placeholder="Email Address"
-            type="email"
-            required
-          />
-        </div>
-        <div>
-          <input
-            class="input-field"
-            placeholder="Student ID"
-            type="text"
-            required
-          />
-        </div>
-        <div class="relative">
-          <input
-            class="input-field"
-            id="passwordField"
-            placeholder="Password"
-            type="password"
-            required
-          />
-          <button
-            aria-label="Toggle password visibility"
-            class="toggle-button"
-            id="togglePassword"
-            type="button"
-          >
-            <i class="fas fa-eye-slash" id="toggleIcon"></i>
-          </button>
-        </div>
-        <div class="relative">
-          <input
-            class="input-field"
-            id="confirmPasswordField"
-            placeholder="Confirm Password"
-            type="password"
-            required
-          />
-          <button
-            aria-label="Toggle confirm password visibility"
-            class="toggle-button"
-            id="toggleConfirmPassword"
-            type="button"
-          >
-            <i class="fas fa-eye-slash" id="toggleConfirmIcon"></i>
-          </button>
-        </div>
-        <div class="flex justify-end pt-4">
-          <button class="btn-submit" type="submit">Sign Up</button>
-        </div>
-      </form>
-    </div>
-    <div class="w-1/2 min-h-screen">
-      <img
-        alt="Interior of a large circular library with curved bookshelves and reading area"
-        class="w-full h-full object-cover"
-        height="1000"
-        src="images/perpus.jpg"
-        width="800"
-      />
-    </div>
-    <script src="js/signup.js"></script>
-  </body>
+      <div>
+        <input class="input-field" id="emailField" placeholder="Email Address" type="email" required />
+      </div>
+      <div>
+        <input class="input-field" id="nimField" placeholder="Student ID" type="text" required />
+      </div>
+      <div class="relative">
+        <input class="input-field pr-10" id="passwordField" placeholder="Password" type="password" required />
+        <button aria-label="Toggle password visibility" class="toggle-button" id="togglePassword" type="button">
+          <i class="fas fa-eye-slash" id="toggleIcon"></i>
+        </button>
+      </div>
+      <div class="relative">
+        <input class="input-field pr-10" id="confirmPasswordField" placeholder="Confirm Password" type="password" required />
+        <button aria-label="Toggle confirm password visibility" class="toggle-button" id="toggleConfirmPassword" type="button">
+          <i class="fas fa-eye-slash" id="toggleConfirmIcon"></i>
+        </button>
+      </div>
+      <div class="flex justify-end pt-4">
+        <button class="btn-submit" type="submit">Sign Up</button>
+      </div>
+    </form>
+  </div>
+  <div class="w-1/2 min-h-screen">
+    <img
+      alt="Interior of a large circular library with curved bookshelves and reading area"
+      class="w-full h-full object-cover"
+      height="1000"
+      src="images/perpus.jpg"
+      width="800"
+    />
+  </div>
+
+  <script>
+    // Toggle password
+    document.getElementById("togglePassword").addEventListener("click", () => {
+      const passwordField = document.getElementById("passwordField");
+      const toggleIcon = document.getElementById("toggleIcon");
+      const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
+      passwordField.setAttribute("type", type);
+      toggleIcon.classList.toggle("fa-eye-slash");
+      toggleIcon.classList.toggle("fa-eye");
+    });
+
+    // Toggle confirm password
+    document.getElementById("toggleConfirmPassword").addEventListener("click", () => {
+      const confirmField = document.getElementById("confirmPasswordField");
+      const toggleIcon = document.getElementById("toggleConfirmIcon");
+      const type = confirmField.getAttribute("type") === "password" ? "text" : "password";
+      confirmField.setAttribute("type", type);
+      toggleIcon.classList.toggle("fa-eye-slash");
+      toggleIcon.classList.toggle("fa-eye");
+    });
+
+    // Form validation
+    function validateSignupForm(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("emailField").value.trim();
+      const nim = document.getElementById("nimField").value.trim();
+      const password = document.getElementById("passwordField").value;
+      const confirmPassword = document.getElementById("confirmPasswordField").value;
+
+      let errorMessages = [];
+
+      if (!email.endsWith(".com")) {
+        errorMessages.push("Email harus menggunakan domain .com");
+      }
+
+      if (nim.length !== 10 || isNaN(nim)) {
+        errorMessages.push("NIM harus terdiri dari 10 digit angka");
+      }
+
+      if (password.length < 8) {
+        errorMessages.push("Password harus minimal 8 karakter");
+      }
+
+      if (password !== confirmPassword) {
+        errorMessages.push("Konfirmasi password tidak cocok");
+      }
+
+      if (errorMessages.length > 0) {
+        alert(errorMessages.join("\n"));
+      } else {
+        alert("Pendaftaran berhasil! Akan dialihkan ke halaman login...");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
 </html>
